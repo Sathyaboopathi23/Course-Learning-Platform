@@ -1,0 +1,157 @@
+body{
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+.logo-img {
+    height: 80px;
+    width: 150px;
+}
+
+.search-box {
+    width: 260px;
+    border-radius: 50px;
+}
+
+.search-box {
+    width: 260px;
+    border-radius: 50px;
+}
+
+.navbar-search {
+    flex-shrink: 0;
+}
+
+.navbar-links .nav-link {
+    font-weight: 500;
+    padding: 8px 15px;
+    font-size: 1.5rem;
+}
+
+.navbar-links .nav-link.active {
+    color: #0d6efd !important;
+    font-weight: 600;
+}
+
+.btn-success {
+    background-color: #1e7e34;
+    border: none;
+    font-size: 1.5rem;
+}
+
+.btn-success:hover {
+    background-color: #16692b;
+}
+
+.login-modal, .signup-modal {
+    background-color: #0067a5;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+.custom-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    filter: invert(1);
+    z-index: 10;
+}
+
+.login-left, .signup-left {
+    background: #0067a5;
+}
+
+.login-img {
+    max-width: 85%;
+}
+
+.login-right, .signup-right {
+    background: #0067a5;
+}
+
+.form-label {
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.login-input, .signup-input {
+    padding: 15px;
+    border-radius: 12px;
+    border: none;
+}
+
+.divider {
+    border-top: 1px solid #ffffff50;
+}
+
+.divider-text {
+    position: relative;
+    top: -14px;
+    background: #0067a5;
+    padding: 0 10px;
+    font-size: 14px;
+}
+
+.social-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 8px;
+    background: #fff;
+    color: #000;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.signup-link, .login-link {
+    color: #00ff99;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.footer-section {
+    background-color: #187a3a;
+    color: #ffffff;
+}
+
+.footer-title {
+    font-weight: bold;
+    margin-bottom: 16px;
+    font-size: 1.5rem;
+}
+
+.footer-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-list li {
+    margin-bottom: 8px;
+    font-size: 1.3rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.footer-list a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.3rem;
+}
+
+.footer-list a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .footer-title {
+        font-size: 16px;
+    }
+
+    .footer-list li {
+        font-size: 14px;
+    }
+}

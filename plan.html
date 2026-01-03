@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="images/IMG_20250630_203827_175-removebg-preview1.png">
+    <title>Course Learning Platform</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="home.css">
+    <style>
+        .pricing-section {
+            padding: 60px 0;
+        }
+
+        .plan-card {
+            border: 1px solid #ddd;
+            border-radius: 16px;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .plan-header {
+            background-color: #0a63a5;
+            color: #fff;
+            padding: 25px;
+        }
+
+        .plan-header h5 {
+            font-weight: 700;
+            margin-bottom: 5px;
+            font-size: 1.5rem;
+        }
+
+        .plan-header p {
+            margin-bottom: 8px;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .plan-header span {
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .plan-body {
+            padding: 25px;
+        }
+
+        .price {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: black;
+            font-weight: 500;
+        }
+
+        .plan-btn {
+            background-color: #157a3b;
+            color: #fff;
+            border-radius: 30px;
+            padding: 10px 20px;
+            font-weight: 600;
+            border: none;
+            width: 100%;
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+        }
+
+        .plan-btn:hover {
+            background-color:white;
+            color: black;
+            border: 1px solid #157a3b;
+        }
+
+        .plan-features {
+            list-style: none;
+            padding: 0;
+        }
+
+        .plan-features li {
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+            color: black;
+        }
+
+        .plan-features i {
+            color: #157a3b;
+            margin-right: 8px;
+        }
+
+        .trusted-section {
+            background-color: #177a3c;
+            padding: 40px 0;
+            border-radius: 25px;
+        }
+
+        .trusted-title {
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .logo-box {
+            background-color: #e6e6e6;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 150px;
+        }
+
+        .logo-box img {
+            max-height: 100px;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        .faq-section {
+            background: #ffffff;
+            padding: 60px 0;
+        }
+
+        .faq-title {
+            text-align: center;
+            font-weight: 600;
+            margin-bottom: 40px;
+            font-size: 2rem;
+        }
+
+        .accordion-item {
+            background: #f1f1f1;
+            border: none;
+            border-radius: 18px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .accordion-button {
+            background: #f1f1f1;
+            font-weight: 600;
+            box-shadow: none;
+            font-size: 1.3rem;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background: #f1f1f1;
+            color: #000;
+            box-shadow: none;
+        }
+
+        .accordion-body {
+            color: #333;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg bg-white shadow-sm py-3">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="home.html">
+            <img src="images/IMG_20250630_203827_175-removebg-preview1.png" alt="Webwave Logo" class="logo-img">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="navbar-search ms-4">
+                <input type="text" class="form-control search-box" placeholder="Search courses">
+            </div>
+
+            <div class="navbar-links mx-auto">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link " href="home.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link " href="course.html">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link " href="learn.html">Live Learning</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="plan.html">Plans & Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="navbar-buttons d-flex gap-2">
+                <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#loginModal">Log In</a>
+                <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#signupModal">Sign Up</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="modal fade" id="loginModal" tabindex="-1">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content login-modal">
+      <button type="button" class="btn-close custom-close" data-bs-dismiss="modal"></button>
+
+      <div class="row g-0">
+        <div class="col-md-6 login-left d-flex align-items-center justify-content-center">
+          <img src="images/image10.png" class="img-fluid login-img" alt="login">
+        </div>
+
+        <div class="col-md-6 login-right text-white p-5">
+
+          <h3 class="fw-bold mb-4">
+            Log in to continue your learning journey
+          </h3>
+
+          <input type="email" class="form-control mb-4 login-input" placeholder="Enter email">
+
+          <button class="btn btn-success w-100 py-3 mb-4">
+            ✉ Continue With Mail
+          </button>
+
+          <div class="text-center mb-3">
+            <hr class="divider">
+            <span class="divider-text">Other Log in Options</span>
+          </div>
+
+          <div class="d-flex justify-content-center gap-3 mb-4">
+            <div class="social-icon google"><i class="bi bi-google" style="color: red;"></i></div>
+            <div class="social-icon facebook"><i class="bi bi-facebook" style="color: blue;"></i></div>
+            <div class="social-icon apple"><i class="bi bi-apple"></i></div>
+          </div>
+
+          <p class="text-center">
+            Don't Have an account?
+            <a href="#" class="signup-link" data-bs-toggle="modal" data-bs-target="#signupModal">Sign Up</a>
+          </p>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="signupModal" tabindex="-1">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content signup-modal">
+      <button type="button" class="btn-close custom-close" data-bs-dismiss="modal"></button>
+
+      <div class="row g-0">
+        <div class="col-md-6 d-flex align-items-center justify-content-center signup-left">
+          <img src="images/image10.png" class="img-fluid login-img" alt="login">
+        </div>
+
+        <div class="col-md-6 signup-right p-5 text-white">
+
+          <h3 class="fw-bold mb-4">
+            Sign in to continue your learning journey
+          </h3>
+
+          <label class="form-label">First Name*</label>
+          <input type="text" class="form-control signup-input mb-3" placeholder="Enter First Name">
+
+          <label class="form-label">Last Name*</label>
+          <input type="text" class="form-control signup-input mb-3" placeholder="Enter Last Name">
+
+          <label class="form-label">Email*</label>
+          <input type="email" class="form-control signup-input mb-4" placeholder="Enter email id">
+
+          <button class="btn btn-success px-5 py-2 rounded-pill mb-3" onclick="window.location.href='home.html'">
+            Sign In
+          </button>
+
+          <p>
+            Already have an account?
+            <a href="#" class="login-link" data-bs-toggle="modal" data-bs-target="#loginModal">Log In</a>
+          </p>
+
+          <hr class="divider">
+
+          <p class="text-center">Other Sign in Options</p>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="pricing-section">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Choose a plan for success</h2>
+            <p class="text-muted">
+                Don't want to buy courses one by one? Pick a plan to help you, your team, or your organization achieve outcomes faster.
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <div class="plan-card">
+                    <div class="plan-header">
+                        <h5>Personal Plan</h5>
+                        <p>For you</p>
+                        <span><i class="bi bi-person-fill"></i> Individuals</span>
+                    </div>
+
+                    <div class="plan-body">
+                        <p class="price">
+                            Starting at ₹500 per month<br>
+                            Billed monthly or annually. Cancel anytime.
+                        </p>
+
+                        <button class="btn plan-btn">Start Subscription</button>
+
+                        <ul class="plan-features">
+                            <li><i class="bi bi-check-circle"></i> Access to 26,000+ top courses</li>
+                            <li><i class="bi bi-check-circle"></i> Certification prep</li>
+                            <li><i class="bi bi-check-circle"></i> Goal-focused recommendations</li>
+                            <li><i class="bi bi-check-circle"></i> AI-powered coding exercises</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="plan-card">
+                    <div class="plan-header">
+                        <h5>Team Plan</h5>
+                        <p>For your team</p>
+                        <span><i class="bi bi-people-fill"></i> 2 to 20 People</span>
+                    </div>
+
+                    <div class="plan-body">
+                        <p class="price">
+                            ₹2,000 a month per user<br>
+                            Billed annually. Cancel anytime.
+                        </p>
+
+                        <button class="btn plan-btn">Start Subscription</button>
+
+                        <ul class="plan-features">
+                            <li><i class="bi bi-check-circle"></i> Access to 13,000+ top courses</li>
+                            <li><i class="bi bi-check-circle"></i> Certification prep</li>
+                            <li><i class="bi bi-check-circle"></i> Goal-focused recommendations</li>
+                            <li><i class="bi bi-check-circle"></i> AI-powered coding exercises</li>
+                            <li><i class="bi bi-check-circle"></i> Analytics and adoption reports</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="plan-card">
+                    <div class="plan-header">
+                        <h5>Enterprise Plan</h5>
+                        <p>For your whole organization</p>
+                        <span><i class="bi bi-people-fill"></i> More than 20 People</span>
+                    </div>
+
+                    <div class="plan-body">
+                        <p class="price">
+                            Contact sales for pricing.
+                        </p>
+
+                        <button class="btn plan-btn">Request a Demo</button>
+
+                        <ul class="plan-features">
+                            <li><i class="bi bi-check-circle"></i> Access to 30,000+ top courses</li>
+                            <li><i class="bi bi-check-circle"></i> Certification prep</li>
+                            <li><i class="bi bi-check-circle"></i> Goal-focused recommendations</li>
+                            <li><i class="bi bi-check-circle"></i> AI-powered coding exercises</li>
+                            <li><i class="bi bi-check-circle"></i> Advanced analytics and insights</li>
+                            <li><i class="bi bi-check-circle"></i> Dedicated customer success team</li>
+                            <li><i class="bi bi-check-circle"></i> International course collection featuring 15 languages</li>
+                            <li><i class="bi bi-check-circle"></i> Customizable content</li>
+                            <li><i class="bi bi-check-circle"></i> Hands-on tech training with add-on</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="trusted-section mb-5">
+    <div class="container text-center">
+        <h4 class="trusted-title">
+            Trusted by over 16,000 companies and millions of learners around the world
+        </h4>
+
+        <div class="row justify-content-center align-items-center mt-4 g-4">
+            <div class="col-6 col-md-3">
+                <div class="logo-box">
+                    <img src="images/image 2.png" alt="Samsung">
+                </div>
+            </div>
+
+            <div class="col-6 col-md-3">
+                <div class="logo-box">
+                    <img src="images/image 1.png" alt="Cisco">
+                </div>
+            </div>
+
+            <div class="col-6 col-md-3">
+                <div class="logo-box">
+                    <img src="images/image 3.png" alt="Ericsson">
+                </div>
+            </div>
+
+            <div class="col-6 col-md-3">
+                <div class="logo-box">
+                    <img src="images/image 4.png" alt="P&G">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="testimonial-section py-5 mb-5">
+    <div class="container-fluid">
+
+        <h3 class="section-title mb-4">
+            See what others are achieving through learning
+        </h3>
+
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+                <div class="testimonial-card">
+                    <div class="user">
+                        <div class="avatar">DS</div>
+                        <h6>Diksha</h6>
+                    </div>
+
+                    <p class="testimonial-text">
+                        Because of this course I was able to clear my two interviews...
+                        Thanks for making such wonderful content.
+                    </p>
+
+                    <a href="#" class="testimonial-link">
+                        View this java course <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="testimonial-card">
+                    <div class="user">
+                        <div class="avatar">S</div>
+                        <h6> Sneka </h6>
+                    </div>
+
+                    <p class="testimonial-text">
+                        I would highly recommend this Web Development Bootcamp to anyone
+                        interested in pursuing a career in web development or looking
+                        to enhance their skills in this field
+                    </p>
+
+                    <a href="#" class="testimonial-link">
+                        View this web development <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="testimonial-card">
+                    <div class="user">
+                        <div class="avatar">AK</div>
+                        <h6> Arunkumar </h6>
+                    </div>
+
+                    <p class="testimonial-text">
+                        Today, I am a software developer, and I credit a significant part
+                        of my success to the solid foundation laid by this course.
+                    </p>
+
+                    <a href="#" class="testimonial-link">
+                        View this Java course <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="testimonial-card">
+                    <div class="user">
+                        <div class="avatar">S</div>
+                        <h6> Suriya </h6>
+                    </div>
+
+                    <p class="testimonial-text">
+                        This has helped me so much in my career...I joined as a frontend
+                        engineer and eventually transitioned to full stack engineer with
+                        the help of this course.
+                    </p>
+
+                    <a href="#" class="testimonial-link">
+                        View this full stack deve... <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="faq-section">
+    <div class="container">
+        <h3 class="faq-title">Frequently asked question</h3>
+
+        <div class="accordion" id="faqAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button" type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#faq1"
+                            aria-expanded="true">
+                        How are courses selected for the plans?
+                    </button>
+                </h2>
+                <div id="faq1" class="accordion-collapse collapse show"
+                     data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Each course included in our plans is curated from the 250,000+ courses in our overall catalog.
+                        Our content experts use insights from 80 million Udemy learners to identify top-rated,
+                        relevant courses on the most sought-after professional topics as well as a selection of
+                        personal development topics.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#faq2">
+                        How is personal plan is different from buying a course?
+                    </button>
+                </h2>
+                <div id="faq2" class="accordion-collapse collapse"
+                     data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        With Personal Plan, your learning opportunities are endless. You'll gain monthly access
+                        to our top-rated courses, coding exercises, and practice tests in a variety of professional
+                        and personal development categories. You can learn one skill or multiple skills at once.
+                        Alternatively, if you buy courses one at a time, you'll get lifetime access to those courses only.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#faq3">
+                        What languages does enterprise plan have content for?
+                    </button>
+                </h2>
+                <div id="faq3" class="accordion-collapse collapse"
+                     data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Enterprise Plan includes our international collection of original-language content in 16
+                        languages, including English, Spanish, Portuguese, French, Italian, German, Indonesian,
+                        Japanese, Korean, Polish, Russian, Turkish, Arabic, Hindi, Vietnamese, and simplified and
+                        traditional Chinese.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<footer class="footer-section">
+    <div class="container py-5">
+        <div class="row gy-4">
+            <div class="col-lg-2 col-md-4">
+                <h6 class="footer-title">About</h6>
+                <ul class="footer-list">
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Investors</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-4">
+                <h6 class="footer-title">In- Demand careers</h6>
+                <ul class="footer-list">
+                    <li>Data Scientist</li>
+                    <li>Full Stack Web Developer</li>
+                    <li>Cloud Engineer</li>
+                    <li>Project Manager</li>
+                    <li>Game Developer</li>
+                    <li>See all Career Accelerators</li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-4">
+                <h6 class="footer-title">Subjects</h6>
+                <ul class="footer-list">
+                    <li>AI</li>
+                    <li>Cloud computing</li>
+                    <li>Code foundations</li>
+                    <li>Computer science</li>
+                    <li>Cybersecurity</li>
+                    <li>Data analytics</li>
+                    <li>Data science</li>
+                    <li>Data visualization</li>
+                    <li>Developer tools</li>
+                    <li>DevOps</li>
+                    <li>Game development</li>
+                    <li>IT</li>
+                    <li>Machine learning</li>
+                    <li>Math</li>
+                    <li>Mobile development</li>
+                    <li>Web design</li>
+                    <li>Web development</li>
+                </ul>
+            </div>
+
+            <div class="col-lg-2 col-md-4">
+                <h6 class="footer-title">Discover Webwave</h6>
+                <ul class="footer-list">
+                    <li>Get the app</li>
+                    <li>Teach on webwave</li>
+                    <li>Plans and Pricing</li>
+                    <li>Affiliate</li>
+                    <li>Help and Support</li>
+                </ul>
+            </div>
+
+            <div class="col-lg-2 col-md-4">
+                <h6 class="footer-title">Legal & Accessibility</h6>
+                <ul class="footer-list">
+                    <li>Accessibility statement</li>
+                    <li>Privacy policy</li>
+                    <li>Sitemap</li>
+                    <li>Terms</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

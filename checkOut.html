@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="images/IMG_20250630_203827_175-removebg-preview1.png">
+    <title>Course Learning Platform</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .checkout-title {
+            font-weight: 700;
+            font-size: 2rem;
+        }
+
+        .payment-icons img {
+            height: 50px;
+            margin-right: 15px;
+        }
+
+        .btn-back {
+            background: #6c6c6c;
+            color: #fff;
+            border-radius: 30px;
+            padding: 10px 40px;
+        }
+
+        .btn-back:hover{
+            background: white;
+            color: black;
+            border: 1px solid black;
+        }
+
+        .order-card {
+            border: 1px solid #000;
+            border-radius: 20px;
+            padding: 25px;
+        }
+
+        .order-card a {
+            color: #0d6efd;
+            text-decoration: none;
+        }
+
+        .pay-btn {
+            background: #1a8f3c;
+            color: #fff;
+            border-radius: 30px;
+            padding: 10px 60px;
+            border: none;
+        }
+
+        .pay-btn:hover{
+            background: white;
+            color: black;
+            border: 1px solid #1a8f3c;
+        }
+
+        .success-modal .modal-content {
+            background: #0568a6;
+            color: #fff;
+            border-radius: 0;
+            border: none;
+        }
+
+        .success-circle {
+            width: 60px;
+            height: 60px;
+            background: #2ecc71;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin: auto;
+        }
+
+        .modal-back-btn {
+            background: #000;
+            color: #fff;
+            border-radius: 30px;
+            padding: 10px 40px;
+            border: none;
+            width: 50%;
+            display: block;
+            margin: auto;
+        }
+        </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg bg-white shadow-sm py-3">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="home.html">
+            <img src="images/IMG_20250630_203827_175-removebg-preview1.png" alt="Webwave Logo" class="logo-img">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="navbar-search ms-4">
+                <input type="text" class="form-control search-box" placeholder="Search courses">
+            </div>
+
+            <div class="navbar-links mx-auto">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link " href="home.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link " href="course.html">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link " href="learn.html">Live Learning</a></li>
+                    <li class="nav-item"><a class="nav-link" href="plan.html">Plans & Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="navbar-buttons d-flex gap-2">
+                <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#loginModal">Log In</a>
+                <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#signupModal">Sign Up</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="modal fade" id="loginModal" tabindex="-1">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content login-modal">
+      <button type="button" class="btn-close custom-close" data-bs-dismiss="modal"></button>
+
+      <div class="row g-0">
+        <div class="col-md-6 login-left d-flex align-items-center justify-content-center">
+          <img src="images/image10.png" class="img-fluid login-img" alt="login">
+        </div>
+
+        <div class="col-md-6 login-right text-white p-5">
+
+          <h3 class="fw-bold mb-4">
+            Log in to continue your learning journey
+          </h3>
+
+          <input type="email" class="form-control mb-4 login-input" placeholder="Enter email">
+
+          <button class="btn btn-success w-100 py-3 mb-4">
+            ✉ Continue With Mail
+          </button>
+
+          <div class="text-center mb-3">
+            <hr class="divider">
+            <span class="divider-text">Other Log in Options</span>
+          </div>
+
+          <div class="d-flex justify-content-center gap-3 mb-4">
+            <div class="social-icon google"><i class="bi bi-google" style="color: red;"></i></div>
+            <div class="social-icon facebook"><i class="bi bi-facebook" style="color: blue;"></i></div>
+            <div class="social-icon apple"><i class="bi bi-apple"></i></div>
+          </div>
+
+          <p class="text-center">
+            Don't Have an account?
+            <a href="#" class="signup-link" data-bs-toggle="modal" data-bs-target="#signupModal">Sign Up</a>
+          </p>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="signupModal" tabindex="-1">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content signup-modal">
+      <button type="button" class="btn-close custom-close" data-bs-dismiss="modal"></button>
+
+      <div class="row g-0">
+        <div class="col-md-6 d-flex align-items-center justify-content-center signup-left">
+          <img src="images/image10.png" class="img-fluid login-img" alt="login">
+        </div>
+
+        <div class="col-md-6 signup-right p-5 text-white">
+
+          <h3 class="fw-bold mb-4">
+            Sign in to continue your learning journey
+          </h3>
+
+          <label class="form-label">First Name*</label>
+          <input type="text" class="form-control signup-input mb-3" placeholder="Enter First Name">
+
+          <label class="form-label">Last Name*</label>
+          <input type="text" class="form-control signup-input mb-3" placeholder="Enter Last Name">
+
+          <label class="form-label">Email*</label>
+          <input type="email" class="form-control signup-input mb-4" placeholder="Enter email id">
+
+          <button class="btn btn-success px-5 py-2 rounded-pill mb-3" onclick="window.location.href='home.html'">
+            Sign In
+          </button>
+
+          <p>
+            Already have an account?
+            <a href="#" class="login-link" data-bs-toggle="modal" data-bs-target="#loginModal">Log In</a>
+          </p>
+
+          <hr class="divider">
+
+          <p class="text-center">Other Sign in Options</p>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container my-5 p-5">
+    <div class="row">
+        <div class="col-md-7">
+            <h3 class="checkout-title">Checkout</h3>
+            <p class="text-muted fs-5">All fields are required</p>
+
+            <div class="payment-icons my-4">
+                <img src="images/pngimg.com - paypal_PNG7.png">
+                <img src="images/images.png">
+                <img src="images/visa-logo-png_seeklogo-198364.png">
+                <img src="images/360_F_560501607_x7crxqBWbmbgK2k8zOL0gICbIbK9hP6y.jpg">
+            </div>
+
+            <div class="mt-5">
+                <button class="btn btn-back me-3" onclick="window.location.href='dataAnalyst.html'">Back</button>
+                <button class="btn pay-btn" data-bs-toggle="modal" data-bs-target="#successModal">Make payment</button>
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <div class="order-card">
+                <h6 class="fw-bold fs-5">
+                IBM Data Analyst Professional Certificate<br>by IBM
+                </h6>
+
+                <a href="#">Remove from Cart</a>
+
+                <hr>
+
+                <div class="d-flex justify-content-between">
+                <span>3 Months of Access:</span>
+                <span>₹8,418</span>
+                </div>
+
+                <div class="d-flex justify-content-between fw-bold mt-2">
+                <span>Total:</span>
+                <span>₹8,418</span>
+                </div>
+
+                <hr>
+
+                <div class="text-center mt-4">
+                <button class="pay-btn" data-bs-toggle="modal" data-bs-target="#successModal">Pay</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="modal fade success-modal" id="successModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content p-4 text-center">
+
+            <h4 class="fw-bold mb-3">Thank you for choosing us</h4>
+
+            <div class="success-circle mb-3">
+                ✔
+            </div>
+
+            <p class="mb-2">
+                Congrats! Start your new learning with us<br>
+                Material and meeting link will be send to<br>
+                your personal email
+            </p>
+
+            <p class="fw-bold">
+                Your class will be start at Jul 28th, 2025
+            </p>
+
+            <button class="modal-back-btn mt-3" onclick="window.location.href='home.html'">
+                Back
+            </button>
+
+        </div>
+    </div>
+</div>
+
+<footer class="footer-section">
+    <div class="container py-5">
+        <div class="row gy-4">
+            <div class="col-lg-2 col-md-4">
+                <h6 class="footer-title">About</h6>
+                <ul class="footer-list">
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Investors</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-4">
+                <h6 class="footer-title">In- Demand careers</h6>
+                <ul class="footer-list">
+                    <li>Data Scientist</li>
+                    <li>Full Stack Web Developer</li>
+                    <li>Cloud Engineer</li>
+                    <li>Project Manager</li>
+                    <li>Game Developer</li>
+                    <li>See all Career Accelerators</li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-4">
+                <h6 class="footer-title">Subjects</h6>
+                <ul class="footer-list">
+                    <li>AI</li>
+                    <li>Cloud computing</li>
+                    <li>Code foundations</li>
+                    <li>Computer science</li>
+                    <li>Cybersecurity</li>
+                    <li>Data analytics</li>
+                    <li>Data science</li>
+                    <li>Data visualization</li>
+                    <li>Developer tools</li>
+                    <li>DevOps</li>
+                    <li>Game development</li>
+                    <li>IT</li>
+                    <li>Machine learning</li>
+                    <li>Math</li>
+                    <li>Mobile development</li>
+                    <li>Web design</li>
+                    <li>Web development</li>
+                </ul>
+            </div>
+
+            <div class="col-lg-2 col-md-4">
+                <h6 class="footer-title">Discover Webwave</h6>
+                <ul class="footer-list">
+                    <li>Get the app</li>
+                    <li>Teach on webwave</li>
+                    <li>Plans and Pricing</li>
+                    <li>Affiliate</li>
+                    <li>Help and Support</li>
+                </ul>
+            </div>
+
+            <div class="col-lg-2 col-md-4">
+                <h6 class="footer-title">Legal & Accessibility</h6>
+                <ul class="footer-list">
+                    <li>Accessibility statement</li>
+                    <li>Privacy policy</li>
+                    <li>Sitemap</li>
+                    <li>Terms</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

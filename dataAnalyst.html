@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="images/IMG_20250630_203827_175-removebg-preview1.png">
+    <title>Course Learning Platform</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .analyst-section {
+            position: relative;
+            padding: 80px 0;
+            overflow: hidden;
+        }
+
+        .analyst-box {
+            background: #0a63a8;
+            color: #fff;
+            padding: 60px 50px;
+            clip-path: polygon(0 0, 88% 0, 100% 50%, 88% 100%, 0 100%);
+            height: 100%;
+        }
+
+        .analyst-box h2 {
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+
+        .analyst-box p {
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .person-wrapper {
+            position: relative;
+            text-align: center;
+        }
+
+        .person-wrapper img.person {
+            max-width: 100%;
+            height: auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .green-curve {
+            position: absolute;
+            bottom: -40px;
+            right: 40px;
+            width: 340px;
+            z-index: 1;
+        }
+
+        .recommended-section {
+            background: #fff;
+        }
+
+        .dropdown-item:hover{
+            background-color: lightblue;
+        }
+
+        .main-card {
+            border: 1px solid #ddd;
+            border-radius: 16px;
+            background: #fff;
+        }
+
+        .left-card {
+            padding-right: 20px;
+        }
+
+        .ibm-logo {
+            width: 60px;
+        }
+
+        .course-card img {
+            width: 100%;
+            height: 150px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            margin-top: 20px;
+        }
+
+        .course-card p {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .course-card small {
+            color: #777;
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 40px;
+            height: 40px;
+            background: #fff;
+            border-radius: 50%;
+            top: 40%;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            filter: invert(1);
+        }
+
+        .enroll-header {
+            background: #177a3f;
+            padding: 16px;
+        }
+
+        .enroll-list li {
+            margin-bottom: 12px;
+            padding-left: 28px;
+            position: relative;
+        }
+
+        .enroll-list li::before {
+            content: "✔";
+            position: absolute;
+            left: 0;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .time-btn {
+            border: 1px solid #000;
+            background: #fff;
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-weight: 500;
+        }
+
+        .time-btn.active {
+            background: #9fd3f0;
+            border-color: #000;
+        }
+
+        .info-bar {
+            background: #eee;
+            padding: 16px 24px;
+            border-radius: 16px;
+        }
+
+        .modal-footer {
+            border-top: none;
+        }
+
+        .career-box {
+            background: #2ecc71;
+            border-radius: 20px;
+            padding: 60px 30px;
+        }
+
+        .career-box h2 {
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg bg-white shadow-sm py-3">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="home.html">
+            <img src="images/IMG_20250630_203827_175-removebg-preview1.png" alt="Webwave Logo" class="logo-img">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="navbar-search ms-4">
+                <input type="text" class="form-control search-box" placeholder="Search courses">
+            </div>
+
+            <div class="navbar-links mx-auto">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link " href="home.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="course.html">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="learn.html">Live Learning</a></li>
+                    <li class="nav-item"><a class="nav-link" href="plan.html">Plans & Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="navbar-buttons d-flex gap-2">
+                <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#loginModal">Log In</a>
+                <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#signupModal">Sign Up</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="modal fade" id="loginModal" tabindex="-1">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content login-modal">
+      <button type="button" class="btn-close custom-close" data-bs-dismiss="modal"></button>
+
+      <div class="row g-0">
+        <div class="col-md-6 login-left d-flex align-items-center justify-content-center">
+          <img src="images/image10.png" class="img-fluid login-img" alt="login">
+        </div>
+
+        <div class="col-md-6 login-right text-white p-5">
+
+          <h3 class="fw-bold mb-4">
+            Log in to continue your learning journey
+          </h3>
+
+          <input type="email" class="form-control mb-4 login-input" placeholder="Enter email">
+
+          <button class="btn btn-success w-100 py-3 mb-4">
+            ✉ Continue With Mail
+          </button>
+
+          <div class="text-center mb-3">
+            <hr class="divider">
+            <span class="divider-text">Other Log in Options</span>
+          </div>
+
+          <div class="d-flex justify-content-center gap-3 mb-4">
+            <div class="social-icon google"><i class="bi bi-google" style="color: red;"></i></div>
+            <div class="social-icon facebook"><i class="bi bi-facebook" style="color: blue;"></i></div>
+            <div class="social-icon apple"><i class="bi bi-apple"></i></div>
+          </div>
+
+          <p class="text-center">
+            Don't Have an account?
+            <a href="#" class="signup-link" data-bs-toggle="modal" data-bs-target="#signupModal">Sign Up</a>
+          </p>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="signupModal" tabindex="-1">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content signup-modal">
+      <button type="button" class="btn-close custom-close" data-bs-dismiss="modal"></button>
+
+      <div class="row g-0">
+        <div class="col-md-6 d-flex align-items-center justify-content-center signup-left">
+          <img src="images/image10.png" class="img-fluid login-img" alt="login">
+        </div>
+
+        <div class="col-md-6 signup-right p-5 text-white">
+
+          <h3 class="fw-bold mb-4">
+            Sign in to continue your learning journey
+          </h3>
+
+          <label class="form-label">First Name*</label>
+          <input type="text" class="form-control signup-input mb-3" placeholder="Enter First Name">
+
+          <label class="form-label">Last Name*</label>
+          <input type="text" class="form-control signup-input mb-3" placeholder="Enter Last Name">
+
+          <label class="form-label">Email*</label>
+          <input type="email" class="form-control signup-input mb-4" placeholder="Enter email id">
+
+          <button class="btn btn-success px-5 py-2 rounded-pill mb-3" onclick="window.location.href='home.html'">
+            Sign In
+          </button>
+
+          <p>
+            Already have an account?
+            <a href="#" class="login-link" data-bs-toggle="modal" data-bs-target="#loginModal">Log In</a>
+          </p>
+
+          <hr class="divider">
+
+          <p class="text-center">Other Sign in Options</p>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="analyst-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7 mb-4 mb-lg-0">
+                <div class="analyst-box text-center">
+                    <h2>Data Analyst</h2>
+
+                    <p class="fs-5">
+                        If you like analyzing data to find insights, creating reports and visualizations,
+                        and working with spreadsheets and databases this role is for you. A Data Analyst collects, cleans, and interprets data to provide actionable insights.
+                        They use tools like Excel, SQL, and Tableau to analyze trends and help businesses
+                        make data-driven decisions. <strong>Skills you'll need:</strong> Data Analysis, SQL, Python Programming,
+                        Data Visualization, Microsoft Excel, Statistics, Data Quality, Data Management
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-5">
+                <div class="person-wrapper">
+                    <img src="images/IMG_20250703_133037_687-removebg-preview.png" alt="Data Analyst" class="person">
+                    <img src="images/shape.svg" class="green-curve" alt="Green Curve">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="recommended-section py-5">
+    <div class="container">
+        <div class="d-flex gap-3 mb-4 flex-column">
+            <h4 class="fw-bold mb-0">Recommended Credentials</h4>
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle rounded-pill px-4" type="button" data-bs-toggle="dropdown">
+                Beginner
+                </button>
+                <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Beginner</a></li>
+                <li><a class="dropdown-item" href="#">Intermediate</a></li>
+                <li><a class="dropdown-item" href="#">Advanced</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="main-card p-4">
+
+            <div class="row g-4 align-items-start">
+                <div class="col-lg-4">
+                    <div class="left-card">
+                        <img src="images/download2.png" class="ibm-logo mb-3" alt="IBM">
+                        <h5 class="fw-bold">IBM data analyst Professional Certificate</h5>
+                        <p class="small text-muted">
+                        Skills you will gain: SQL, python programming<br>
+                        Data visualization, Data Analysis
+                        </p>
+
+                        <div class="d-flex align-items-center gap-2 mb-2">
+                            <span class="text-warning fw-bold">★ 4.7</span>
+                            <span class="small text-muted">(23,206 reviews)</span>
+                        </div>
+
+                        <p class="small text-muted">Beginner · 4 months</p>
+
+                        <button class="btn btn-success rounded-pill px-4" data-bs-toggle="modal" data-bs-target="#enrollModal">
+                        Enroll Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="col-lg-8 position-relative">
+
+                    <div id="courseCarousel" class="carousel slide" data-bs-interval="false">
+                        <div class="carousel-inner">
+
+                            <div class="carousel-item active">
+                                <div class="row g-3">
+                                    <div class="col-md-3">
+                                        <div class="course-card">
+                                        <img src="images/photo-1666875753105-c63a6f3bdc86.jpg" class="img-fluid" alt="img1">
+                                        <p>Introduction to Data Analyst</p>
+                                        <small>Course 1 of 11</small>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div class="course-card">
+                                        <img src="images/CanadaEmploymentHistorical.png" class="img-fluid" alt="img2">
+                                        <p>Excel Basics for Data Analysis</p>
+                                        <small>Course 2 of 11</small>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div class="course-card">
+                                        <img src="images/236606078-0a32b9cc-61a3-4469-8365-c896aa8188f9.png" class="img-fluid" alt="img3">
+                                        <p>Data Visualization and Dashboards with Excel and Cognos</p>
+                                        <small>Course 3 of 11</small>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div class="course-card">
+                                        <img src="images/2022-07-19-Melhores-cursos-de-Python.jpg" class="img-fluid" alt="img1">
+                                        <p>Python for Data Science, AI & Data Development</p>
+                                        <small>Course 4 of 11</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="carousel-item">
+                                <div class="row g-3">
+                                    <div class="col-md-3">
+                                        <div class="course-card">
+                                        <img src="images/Features_Of_Python_1_f4ccd6d9f7.jpg" class="img-fluid" alt="img5">
+                                        <p>Python Project for Data Sciences</p>
+                                        <small>Course 5 of 11</small>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div class="course-card">
+                                        <img src="images/istockphoto-1800292591-612x612.jpg" class="img-fluid" alt="img6">
+                                        <p>Databases and SQL for Data Science with Python</p>
+                                        <small>Course 6 of 11</small>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div class="course-card">
+                                        <img src="images/2022-07-19-Melhores-cursos-de-Python.jpg" class="img-fluid" alt="img7">
+                                        <p>Data Visualization with Python</p>
+                                        <small>Course 7 of 11</small>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div class="course-card">
+                                        <img src="images/Features_Of_Python_1_f4ccd6d9f7.jpg" class="img-fluid" alt="img8">
+                                        <p>Python for Data Science, AI & Development</p>
+                                        <small>Course 8 of 11</small>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="carousel-item">
+                                <div class="row g-3">
+                                    <div class="col-md-3">
+                                        <div class="course-card">
+                                        <img src="images/ibm-data-analyst-professional-certificate.jpg" class="img-fluid" alt="img9">
+                                        <p>IBM Data Analyst Capstone Project</p>
+                                        <small>Course 9 of 11</small>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div class="course-card">
+                                        <img src="images/image-1.png" class="img-fluid" alt="img10">
+                                        <p>Generative AI: Enhance your Data Analytics Career</p>
+                                        <small>Course 10 of 11</small>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div class="course-card">
+                                        <img src="images/interview-questions-for-data-analyst-2022-prep-guide.jpg" class="img-fluid" alt="img11">
+                                        <p>Data Analyst Career Guide and interview Preparations</p>
+                                        <small>Course 11 of 11</small>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- ARROWS -->
+                        <button class="carousel-control-prev" type="button" data-bs-target="#courseCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                        </button>
+
+                        <button class="carousel-control-next" type="button" data-bs-target="#courseCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                        </button>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<div class="modal fade" id="enrollModal" tabindex="-1">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content rounded-4 overflow-hidden">
+            <div class="modal-header enroll-header justify-content-center">
+                <h5 class="modal-title text-white fw-bold">
+                Enroll in this 11-course Professional Certificate
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body p-4">
+                <div class="row">
+                    <div class="col-md-6 border-end">
+                        <p class="fw-bold">
+                        Introduction to Data Analytics is a 11-course Professional Certificate.
+                        </p>
+                        <p class="fw-bold">This Professional Certificate includes:</p>
+
+                        <ul class="list-unstyled enroll-list">
+                        <li>Unlimited access to all 11 courses</li>
+                        <li>Shareable certificate of completion from IBM</li>
+                        <li>EMI payment options</li>
+                        <li>14 day refund period</li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-6 ps-md-4">
+                        <p class="fw-bold">How much time do you need to finish?</p>
+
+                        <div class="d-flex gap-3 mb-4">
+                        <button class="time-btn">1 Month</button>
+                        <button class="time-btn active">3 Month</button>
+                        <button class="time-btn">6 Month</button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="info-bar mt-4 d-flex justify-content-between align-items-center">
+                    <div>
+                        <strong>Estimated study time</strong><br>
+                        <small>13 hours/week</small>
+                    </div>
+
+                    <div class="text-end">
+                        <strong>₹2,806/month</strong><br>
+                        <small>Total ₹8,418</small>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="modal-footer justify-content-center gap-4 pb-4">
+                <button class="btn btn-secondary rounded-pill px-5" data-bs-dismiss="modal">
+                Back
+                </button>
+                <button class="btn btn-success rounded-pill px-5" onclick="window.location.href='checkOut.html'">
+                Continue 
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<section class="recommended-section py-5">
+    <div class="container">
+        <div class="main-card p-4">
+            <div class="row g-4 align-items-start">
+                <div class="col-lg-4">
+                    <div class="left-card">
+                        <img src="images/download3.png" class="ibm-logo mb-3" alt="IBM">
+                        <h5 class="fw-bold">Meta data analyst Professional Certificate</h5>
+                        <p class="small text-muted">
+                        Skills you will gain: SQL, python programming<br>
+                        Pandas, Data Analysis
+                        </p>
+
+                        <div class="d-flex align-items-center gap-2 mb-2">
+                            <span class="text-warning fw-bold">★ 4.7</span>
+                            <span class="small text-muted">(23,206 reviews)</span>
+                        </div>
+
+                        <p class="small text-muted">Beginner · 4 months</p>
+
+                        <button class="btn btn-success rounded-pill px-4">
+                        Enroll Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="col-lg-8 d-flex g-1">
+                    <div class="col-md-3">
+                        <div class="course-card">
+                        <img src="images/photo-1666875753105-c63a6f3bdc86.jpg" class="img-fluid" alt="img1">
+                        <p>Introduction to Data Analyst</p>
+                        <small>Course 1 of 11</small>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="course-card">
+                        <img src="images/CanadaEmploymentHistorical.png" class="img-fluid" alt="img2">
+                        <p>Excel Basics for Data Analysis</p>
+                        <small>Course 2 of 11</small>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="course-card">
+                        <img src="images/236606078-0a32b9cc-61a3-4469-8365-c896aa8188f9.png" class="img-fluid" alt="img3">
+                        <p>Data Visualization and Dashboards with Excel and Cognos</p>
+                        <small>Course 3 of 11</small>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="course-card">
+                        <img src="images/2022-07-19-Melhores-cursos-de-Python.jpg" class="img-fluid" alt="img1">
+                        <p>Python for Data Science, AI & Data Development</p>
+                        <small>Course 4 of 11</small>
+                        </div>
+                    </div>
+                        
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+ <button class="btn btn-success rounded-pill px-4 ms-5">Show 5 More</button>
+
+<section class="career-intro my-5">
+    <div class="container">
+        <div class="career-box text-center">
+            <h2 class="fw-bold">What brings you to webwave today?</h2>
+
+            <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
+                <button class="btn bg-white">Start my carrer</button>
+                <button class="btn bg-white">Change my carrer</button>
+                <button class="btn bg-white">Grow in my current role</button>
+                <button class="btn bg-white">Explore topics outside of work</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<footer class="footer-section">
+    <div class="container py-5">
+        <div class="row gy-4">
+            <div class="col-lg-2 col-md-4">
+                <h6 class="footer-title">About</h6>
+                <ul class="footer-list">
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Investors</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-4">
+                <h6 class="footer-title">In- Demand careers</h6>
+                <ul class="footer-list">
+                    <li>Data Scientist</li>
+                    <li>Full Stack Web Developer</li>
+                    <li>Cloud Engineer</li>
+                    <li>Project Manager</li>
+                    <li>Game Developer</li>
+                    <li>See all Career Accelerators</li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-4">
+                <h6 class="footer-title">Subjects</h6>
+                <ul class="footer-list">
+                    <li>AI</li>
+                    <li>Cloud computing</li>
+                    <li>Code foundations</li>
+                    <li>Computer science</li>
+                    <li>Cybersecurity</li>
+                    <li>Data analytics</li>
+                    <li>Data science</li>
+                    <li>Data visualization</li>
+                    <li>Developer tools</li>
+                    <li>DevOps</li>
+                    <li>Game development</li>
+                    <li>IT</li>
+                    <li>Machine learning</li>
+                    <li>Math</li>
+                    <li>Mobile development</li>
+                    <li>Web design</li>
+                    <li>Web development</li>
+                </ul>
+            </div>
+
+            <div class="col-lg-2 col-md-4">
+                <h6 class="footer-title">Discover Webwave</h6>
+                <ul class="footer-list">
+                    <li>Get the app</li>
+                    <li>Teach on webwave</li>
+                    <li>Plans and Pricing</li>
+                    <li>Affiliate</li>
+                    <li>Help and Support</li>
+                </ul>
+            </div>
+
+            <div class="col-lg-2 col-md-4">
+                <h6 class="footer-title">Legal & Accessibility</h6>
+                <ul class="footer-list">
+                    <li>Accessibility statement</li>
+                    <li>Privacy policy</li>
+                    <li>Sitemap</li>
+                    <li>Terms</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

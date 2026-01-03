@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="images/IMG_20250630_203827_175-removebg-preview1.png">
+    <title>Course Learning Platform</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .trending-header {
+            background-color: #177c3f;
+            color: #ffffff;
+            text-align: center;
+            padding: 18px;
+            border-radius: 50px;
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+        .course-card {
+            border: 1.5px solid #000;
+            border-radius: 20px;
+            padding: 20px;
+            height: 100%;
+        }
+
+        .img-wrapper {
+            width: 180px;
+            height: 90px;
+            background-color: #0b5fa5;
+            border-top-left-radius: 180px;
+            border-top-right-radius: 180px;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            margin: 0 auto 60px;
+            position: relative;
+            overflow: visible;
+        }
+
+        .img-wrapper img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .course-card h5 {
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .course-card p{
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .instructor {
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .price {
+            font-weight: 600;
+        }
+
+        .seats {
+            color: #8a8a8a;
+            font-size: 1.2rem;
+        }
+
+        .book-btn {
+            background-color: #177c3f;
+            color: #fff;
+            border-radius: 30px;
+            padding: 8px 30px;
+            font-weight: 600;
+            display: block;
+            margin:10px auto ;
+            font-size: 1.2rem;
+        }
+
+        .book-btn:hover {
+            background-color: #136532;
+            color: #fff;
+        }
+
+        .training-section {
+            background-color: #0a63a5;
+            padding: 40px 0 60px;
+        }
+
+        .section-header h2 {
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .view-more {
+            color: #fff;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .training-card{
+            background: #fff;
+            border-radius: 22px;
+            padding: 18px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .training-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 18px;
+            margin-bottom: 15px;
+        }
+
+        .training-card h5 {
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        .training-card p {
+            font-size: 1.2rem;
+            font-weight: 500;
+            line-height: 1.6;
+            color: #000;
+        }
+
+        .training-card .date {
+            font-weight:bold;
+            margin-top: 15px;
+        }
+
+        
+        .career-box {
+            background: #2ecc71;
+            border-radius: 20px;
+            padding: 60px 30px;
+        }
+
+        .career-box h2 {
+            color: #000;
+        }
+        </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg bg-white shadow-sm py-3">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="home.html">
+            <img src="images/IMG_20250630_203827_175-removebg-preview1.png" alt="Webwave Logo" class="logo-img">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="navbar-search ms-4">
+                <input type="text" class="form-control search-box" placeholder="Search courses">
+            </div>
+
+            <div class="navbar-links mx-auto">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link " href="home.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link " href="course.html">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="learn.html">Live Learning</a></li>
+                    <li class="nav-item"><a class="nav-link" href="plan.html">Plans & Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="navbar-buttons d-flex gap-2">
+                <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#loginModal">Log In</a>
+                <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#signupModal">Sign Up</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="modal fade" id="loginModal" tabindex="-1">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content login-modal">
+      <button type="button" class="btn-close custom-close" data-bs-dismiss="modal"></button>
+
+      <div class="row g-0">
+        <div class="col-md-6 login-left d-flex align-items-center justify-content-center">
+          <img src="images/image10.png" class="img-fluid login-img" alt="login">
+        </div>
+
+        <div class="col-md-6 login-right text-white p-5">
+
+          <h3 class="fw-bold mb-4">
+            Log in to continue your learning journey
+          </h3>
+
+          <input type="email" class="form-control mb-4 login-input" placeholder="Enter email">
+
+          <button class="btn btn-success w-100 py-3 mb-4">
+            ✉ Continue With Mail
+          </button>
+
+          <div class="text-center mb-3">
+            <hr class="divider">
+            <span class="divider-text">Other Log in Options</span>
+          </div>
+
+          <div class="d-flex justify-content-center gap-3 mb-4">
+            <div class="social-icon google"><i class="bi bi-google" style="color: red;"></i></div>
+            <div class="social-icon facebook"><i class="bi bi-facebook" style="color: blue;"></i></div>
+            <div class="social-icon apple"><i class="bi bi-apple"></i></div>
+          </div>
+
+          <p class="text-center">
+            Don't Have an account?
+            <a href="#" class="signup-link" data-bs-toggle="modal" data-bs-target="#signupModal">Sign Up</a>
+          </p>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="signupModal" tabindex="-1">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content signup-modal">
+      <button type="button" class="btn-close custom-close" data-bs-dismiss="modal"></button>
+
+      <div class="row g-0">
+        <div class="col-md-6 d-flex align-items-center justify-content-center signup-left">
+          <img src="images/image10.png" class="img-fluid login-img" alt="login">
+        </div>
+
+        <div class="col-md-6 signup-right p-5 text-white">
+
+          <h3 class="fw-bold mb-4">
+            Sign in to continue your learning journey
+          </h3>
+
+          <label class="form-label">First Name*</label>
+          <input type="text" class="form-control signup-input mb-3" placeholder="Enter First Name">
+
+          <label class="form-label">Last Name*</label>
+          <input type="text" class="form-control signup-input mb-3" placeholder="Enter Last Name">
+
+          <label class="form-label">Email*</label>
+          <input type="email" class="form-control signup-input mb-4" placeholder="Enter email id">
+
+          <button class="btn btn-success px-5 py-2 rounded-pill mb-3" onclick="window.location.href='home.html'">
+            Sign In
+          </button>
+
+          <p>
+            Already have an account?
+            <a href="#" class="login-link" data-bs-toggle="modal" data-bs-target="#loginModal">Log In</a>
+          </p>
+
+          <hr class="divider">
+
+          <p class="text-center">Other Sign in Options</p>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid my-5">
+    <h3 class="fw-bold mb-4">Live online classes Book your seat now</h3>
+    <div class="trending-header mb-5">
+        Trending skills
+    </div>
+
+    <div class="row g-4 mb-5">
+        <div class="col-lg-3 col-md-6">
+            <div class="course-card">
+                <div class="img-wrapper">
+                    <img src="images/IMG_20250703_133052_549-removebg-preview1.png" alt="Instructor">
+                </div>
+                <h5>Python 45 Days programme</h5>
+                <p class="instructor">Dr. A.V prabhu</p>
+                <p>45 days live class</p>
+                <p class="price">Just ₹3000 only</p>
+                <p>Provide material</p>
+                <p class="seats">Limited seats are available</p>
+                <button class="btn book-btn">Book Now</button>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+            <div class="course-card">
+                <div class="img-wrapper">
+                    <img src="images/IMG_20250703_133125_375-removebg-preview1.png" alt="Instructor">
+                </div>
+                <h5>Data analytics</h5>
+                <p class="instructor">Dr. S.V Anu</p>
+                <p>90 days live class</p>
+                <p class="price">Just ₹6000 only</p>
+                <p>Provide material</p>
+                <p class="seats">5 seats are available</p>
+                <button class="btn book-btn">Book Now</button>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+            <div class="course-card">
+                <div class="img-wrapper">
+                    <img src="images/IMG_20250703_133125_375-removebg-preview1.png" alt="Instructor">
+                </div>
+                <h5>Data Science</h5>
+                <p class="instructor">Dr. S.V Anu</p>
+                <p>90 days live class</p>
+                <p class="price">Just ₹6000 only</p>
+                <p>Provide material</p>
+                <p class="seats">5 seats are available</p>
+                <button class="btn book-btn">Book Now</button>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+            <div class="course-card">
+                <div class="img-wrapper">
+                    <img src="images/IMG_20250703_133052_549-removebg-preview1.png" alt="Instructor">
+                </div>
+                <h5>AI 100 days programme</h5>
+                <p class="instructor">Dr. A.V Prabhu</p>
+                <p>100 days live class</p>
+                <p class="price">Just ₹20000 only</p>
+                <p>Provide material and video</p>
+                <p class="seats">3 seats are available</p>
+                <button class="btn book-btn">Book Now</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4 mb-5">
+        <div class="col-lg-3 col-md-6">
+            <div class="course-card">
+                <div class="img-wrapper">
+                    <img src="images/IMG_20250703_133115_002-removebg-preview1.png" alt="Instructor">
+                </div>
+                <h5>Machine Learning</h5>
+                <p class="instructor">Dr. B. Arun</p>
+                <p>60 days live class</p>
+                <p class="price">Just ₹5000 only</p>
+                <p><del>Provide material</del></p>
+                <p class="seats">Limited seats are available</p>
+                <button class="btn book-btn">Book Now</button>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+            <div class="course-card">
+                <div class="img-wrapper">
+                    <img src="images/IMG_20250703_132747_432-removebg-preview1.png" alt="Instructor">
+                </div>
+                <h5>Marketing</h5>
+                <p class="instructor">Dr. S. Subbu</p>
+                <p>90 days live class</p>
+                <p class="price">Just ₹10000 only</p>
+                <p>Provide material</p>
+                <p class="seats">10 seats are available</p>
+                <button class="btn book-btn">Book Now</button>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+            <div class="course-card">
+                <div class="img-wrapper">
+                    <img src="images/IMG_20250703_132747_432-removebg-preview1.png" alt="Instructor">
+                </div>
+                <h5>Business Intelligence analyst</h5>
+                <p class="instructor">Dr. S. Subbu</p>
+                <p>120 days live class</p>
+                <p class="price">Just ₹15000 only</p>
+                <p>Provide material and video</p>
+                <p class="seats">6 seats are available</p>
+                <button class="btn book-btn">Book Now</button>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+            <div class="course-card">
+                <div class="img-wrapper">
+                    <img src="images/IMG_20250703_132802_742-removebg-preview1.png" alt="Instructor">
+                </div>
+                <h5>Information Technology</h5>
+                <p class="instructor">Dr. A. Aria</p>
+                <p>100 days live class</p>
+                <p class="price">Just ₹20000 only</p>
+                <p>Provide material and video</p>
+                <p class="seats">3 seats are available</p>
+                <button class="btn book-btn">Book Now</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="training-section">
+    <div class="container-fluid px-5">
+        <div class="section-header d-flex justify-content-between align-items-center">
+            <h2>Professional Certificate Training</h2>
+            <a href="#" class="view-more">View More</a>
+        </div>
+
+        <div class="row g-4 mt-4">
+            <div class="col-lg-3 col-md-6">
+                <div class="training-card">
+                    <img src="images/business-stocks-professional-uz4x7mtnrljcqupk.jpg" alt="Business">
+                    <h5>Businesss</h5>
+                    <p>
+                        Developing and selling online courses, lesson plans, and other educational materials.
+                        Creating interactive and gamified language learning experiences
+                    </p>
+                    <p class="date">Starts on 20th July</p>
+                    <button class="btn book-btn">Book Now</button>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="training-card">
+                    <img src="images/photo-1610563166150-b34df4f3bcd6.jpg" alt="CS">
+                    <h5>Computer Science</h5>
+                    <p>
+                        Learning to code using various languages (e.g., block-based, Python, JavaScript) is a core component.
+                    </p>
+                    <p class="date">Starts on 21th July</p>
+                    <button class="btn book-btn">Book Now</button>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="training-card">
+                    <img src="images/Data-Science-self_paced.png" alt="Data Science">
+                    <h5>Data Science</h5>
+                    <p>
+                        Data science helps create customized learning paths by analyzing student performance,
+                        learning styles, and preferences.
+                    </p>
+                    <p class="date">Starts on 28th July</p>
+                    <button class="btn book-btn">Book Now</button>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="training-card">
+                    <img src="images/360_F_314927575_yqFMAuXFTNC6gBflR2njRZ4bQb8dAb7y.jpg" alt="IT">
+                    <h5>Information Technology</h5>
+                    <p>
+                        IT education covers core concepts like computer hardware, software,
+                        programming, databases, and networking
+                    </p>
+                    <p class="date">Starts on 5th Augest</p>
+                    <button class="btn book-btn">Book Now</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="career-intro my-5">
+    <div class="container">
+        <div class="career-box text-center">
+            <h2 class="fw-bold">What brings you to webwave today?</h2>
+
+            <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
+                <button class="btn bg-white">Start my carrer</button>
+                <button class="btn bg-white">Change my carrer</button>
+                <button class="btn bg-white">Grow in my current role</button>
+                <button class="btn bg-white">Explore topics outside of work</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer-section">
+    <div class="container py-5">
+        <div class="row gy-4">
+            <div class="col-lg-2 col-md-4">
+                <h6 class="footer-title">About</h6>
+                <ul class="footer-list">
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Investors</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-4">
+                <h6 class="footer-title">In- Demand careers</h6>
+                <ul class="footer-list">
+                    <li>Data Scientist</li>
+                    <li>Full Stack Web Developer</li>
+                    <li>Cloud Engineer</li>
+                    <li>Project Manager</li>
+                    <li>Game Developer</li>
+                    <li>See all Career Accelerators</li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-4">
+                <h6 class="footer-title">Subjects</h6>
+                <ul class="footer-list">
+                    <li>AI</li>
+                    <li>Cloud computing</li>
+                    <li>Code foundations</li>
+                    <li>Computer science</li>
+                    <li>Cybersecurity</li>
+                    <li>Data analytics</li>
+                    <li>Data science</li>
+                    <li>Data visualization</li>
+                    <li>Developer tools</li>
+                    <li>DevOps</li>
+                    <li>Game development</li>
+                    <li>IT</li>
+                    <li>Machine learning</li>
+                    <li>Math</li>
+                    <li>Mobile development</li>
+                    <li>Web design</li>
+                    <li>Web development</li>
+                </ul>
+            </div>
+
+            <div class="col-lg-2 col-md-4">
+                <h6 class="footer-title">Discover Webwave</h6>
+                <ul class="footer-list">
+                    <li>Get the app</li>
+                    <li>Teach on webwave</li>
+                    <li>Plans and Pricing</li>
+                    <li>Affiliate</li>
+                    <li>Help and Support</li>
+                </ul>
+            </div>
+
+            <div class="col-lg-2 col-md-4">
+                <h6 class="footer-title">Legal & Accessibility</h6>
+                <ul class="footer-list">
+                    <li>Accessibility statement</li>
+                    <li>Privacy policy</li>
+                    <li>Sitemap</li>
+                    <li>Terms</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
