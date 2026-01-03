@@ -25,7 +25,7 @@ body{
 .navbar-links .nav-link {
     font-weight: 500;
     padding: 8px 15px;
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 
 .navbar-links .nav-link.active {
